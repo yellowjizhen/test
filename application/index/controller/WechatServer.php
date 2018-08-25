@@ -23,13 +23,18 @@ class WechatServer
 
             'log' => [
                 'level' => 'debug',
-                'file' => __DIR__.'/wechat.log',
+                'file' => LOG_PATH.'/wechat.log',
             ],
         ];
 
         $app = Factory::officialAccount($config);
 
+        $app->server->push(function ($message) {
+            return "您好！我是黄老吉";
+        });
+
         $response = $app->server->serve();
+
         $response->send();
     }
 }
