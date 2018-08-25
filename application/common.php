@@ -10,3 +10,18 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+function dd($var, $exit = 1)
+{
+    header("Content-type: text/html; charset=utf-8");
+    echo "<pre>";
+    print_r($var);
+    echo "</pre>";
+    if($exit) exit;
+}
+
+function p($arr)
+{
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
+}
